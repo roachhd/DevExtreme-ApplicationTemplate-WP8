@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+
+    <style type="text/css">
+        * {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        body {
+            -webkit-touch-callout: none;
+            -webkit-text-size-adjust: none;
+            -webkit-user-select: none;
+            background-color: #E4E4E4;
+            background-image: linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+            background-image: -webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+            background-image: -ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+            background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #A7A7A7), color-stop(0.51, #E4E4E4) );
+            background-attachment: fixed;
+            font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .app {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAABGdBTUEAALGPC/xhBQAAAwBQTFRFBwgICAkJDhAPDhAQEhQUFhcYFRgXFhgYGhwcHCAeHiAgIiQkJSgnJigoKiwsLTAvLjAxMjQ0Njg4Ojw8PkBAQkRERkdIRUhHRkhJSkxMTU9QTlBQUVNTVVZYVlhYWVpaXV9gXmBgY2RkZ2hoamtrb3Bwc3V1d3h4eXp6yk4wzVExzVM1z1QwzVY6zlg+0FYv0lku1Fou1l0u2F8u0FYw0Vgw0ls201w01l0w1F810Vw72WEt22Qt3mcr3GUs32gr3mgs1mAz1GI+22Ux3Wgx2mk63XA/9H8f4Goq4Gks4mwq4W0u5G4p5nIn5nAo5XEt53Qt6HIm6nUm7HYj7HYl6Xcs7noi7Hgk7nwm7Hss43Iz4XM653o563826X488Hsi8X0h8X0k9H4g0mNE1mlC1WpL2WxD33VF3XdP3nlO1nJV13Rb2nZT3Hxa2X1m4HVD5X1D9IAe74As7YAy64I88oEl9IAg9IQl84Qr9Ygr9Ykv8Yc29Ys29Y0184w99ZE93IFm24Jt34pt3Yp03Yp46YdN74lB7oxK5oRQ4YNa5ola6oxW7pNX7JNb8ItB9pRD85JI9phI9ppM8JRW9pxT8ZlZ4YZh5Y1j5Y9o449w55Rt6pVm6JZv45N196FZ7aBy7aV99aRl8aBo96hl+K1v8qd19Kp08Kl997N8+LF0goODh4iIiYqLkpOTmpuboqOjp6ioq6ysr6+wrrCvs7S0t7i4u7y835KB4piE5Z6I6aOG6KSI7qyJ5qeV6q2V6K6c77KT7LKb8a2D9LSJ9bqO+biC+byK8LWT9b2V87yc6bKh7rmi67qt8L2k+cGT+8mf7sK178a99cOk9MWp98mq+8ym+c2q8MWz8su8+tCv+NG1/Ne4/Ni6xMTEx8jHx8jIy8vMz9DQ1NTU19jY2tvb3+Dg8MzD9tXE8dLK9djO+tvF+d7M9t3T+N3R/OHM9uHb+uPU+OPa/evb4+Pj7Ozs++zj+u7q/fDl/fPt8/Pz/PXz/fj1/v7+AAAAAAAAAAAAfVJR2AAAAQB0Uk5T////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AFP3ByUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAADX1JREFUeF6tmHt0XFUVxifJtE0yzeQxmZhJ0gbTmJXWdhVo64N2QaBUoNBqRYht1QYUVLRCBaE+EKG+UfEB4gPwCUjaJivLtr6rqChWRYRFZVWzVoyzBCryaKbCpf3Dvfd57XPvuXfOpPko/2b/5vu+fc6ZSS1fvgJ0MulUpZVaq07XGhg471zS2rVrLxBaT1q3YcMbpd4EGgRdDNoypHXptbHiAKfI8acuk9NXrlq1Uk9HaYAkAg1wySVy/rWXxhMAABIQgIPAdsDfAgRgFpQHsC1YpjIABxTBwICVgSSIALgtSCBwApy6zISgMhAphAGSM5DTEzNQAERwSiQDPt9kEAJYF1tDTwcSMgACjZCQwfqYDIYUwaWxBG4AnYHpACg2g3UA4MxAOxBvQQwAy8BywJ3B+nXREiDBoHYgvgQEkJiBqQE6YACsDNx7MGQyiLUgtdgG0AQ6A1NDQiCAiAXuDAZNBrEWCAAkIADWAgEQdiAmA8ciIoG3A0kZAIIEIISYDOw9UACD5fcgtTiUgQQwGfAaogggbEH4KJAAQ+X3IAzAFkEAAIIcj4rNwL0Hg2YPYhz4IAMIZcAW0dwH2gIEKJ/BFrYHLoJt130ZAGIycNWQEAjAxwJ7DxwZbNt2/e8iAFEL2CL63wfSgiF3BttI1153wwPPcQAiMBeSsoDdyayGCBCXAStBJAMxefuHrr/hS3fd99iR4wrAkYGxQGcwQAgEwCyg8WiBnM8IhqwMzjkHRl9/y63fu++Bh/5y8B/PHD12nABiMtB7EOpAJXswuEUTfGD7R2656/sPPPTY35858sKLMFooAWAZWwTrLDIZcIBQCVQNt0AG27d/9Nbv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) no-repeat center top;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 50px;
+            width: 225px;
+            text-align: center;
+            padding: 180px 0px 0px 0px;
+            margin: -115px 0px 0px -112px;
+        }
+
+        @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+            .app {
+                background-position: left center;
+                padding: 75px 0px 75px 170px;
+                margin: -90px 0px 0px -198px;
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            margin: 0px;
+            overflow: visible;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .event {
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            color: #FFFFFF;
+            font-size: 12px;
+            margin: 0px 30px;
+            padding: 2px 0px;
+        }
+
+        .event.listening {
+            background-color: #333333;
+            display: block;
+        }
+
+        .event.received {
+            background-color: #4B946A;
+            display: none;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 1.0;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1.0;
+            }
+        }
+
+        @-webkit-keyframes fade {
+            from {
+                opacity: 1.0;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1.0;
+            }
+        }
+
+        .blink {
+            animation: fade 3000ms infinite;
+            -webkit-animation: fade 3000ms infinite;
+        }
+    </style>
+
+    <title>Hello World</title>
+</head>
+<body>
+    <div class="app">
+        <h1>DevExpress DevExtreme JS HTML</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript">
+        var app = {
+            initialize: function () {
+                this.bindEvents();
+            },
+            bindEvents: function () {
+                document.addEventListener('deviceready', this.onDeviceReady, false);
+            },
+            onDeviceReady: function () {
+                app.receivedEvent('deviceready');
+                setInterval(function() { console.log('timer interval'); }, 1000)
+            },
+            receivedEvent: function (id) {
+                var parentElement = document.getElementById(id);
+                var listeningElement = parentElement.querySelector('.listening');
+                var receivedElement = parentElement.querySelector('.received');
+                listeningElement.setAttribute('style', 'display:none;');
+                receivedElement.setAttribute('style', 'display:block;');
+                console.log('Received Event: ' + id);
+            }
+        };
+    </script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+</html>
